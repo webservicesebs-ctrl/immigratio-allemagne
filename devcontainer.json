@@ -1,0 +1,45 @@
+{
+  "name": "Laravel + Next.js Dev",
+  "image": "mcr.microsoft.com/devcontainers/php:8.2",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    },
+    "ghcr.io/devcontainers/features/mysql:1": {
+      "version": "8.0",
+      "database": "salary_db",
+      "user": "root",
+      "password": "root"
+    }
+  },
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "forwardPorts": [
+    3000,
+    8000,
+    3306
+  ],
+  "portsAttributes": {
+    "3000": {
+      "label": "Next.js (frontend)",
+      "onAutoForward": "openBrowser"
+    },
+    "8000": {
+      "label": "Laravel (backend)",
+      "onAutoForward": "openBrowser"
+    },
+    "3306": {
+      "label": "MySQL 8"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bmewburn.vscode-intelephense-client",
+        "ms-azuretools.vscode-docker",
+        "ms-vscode.vscode-typescript-next",
+        "esbenp.prettier-vscode",
+        "eamodio.gitlens"
+      ]
+    }
+  }
+}
